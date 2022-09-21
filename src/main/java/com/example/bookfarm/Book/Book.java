@@ -1,4 +1,7 @@
-package com.example.bookfarm.Model;
+package com.example.bookfarm.Book;
+
+import com.example.bookfarm.Author.Author;
+import net.bytebuddy.dynamic.loading.ClassReloadingStrategy;
 
 import javax.persistence.*;
 
@@ -6,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "BOOK")
 public class Book {
     @Id
+    @GeneratedValue( strategy= GenerationType.AUTO)
     @Column(name = "BOOK_ID")
     private Long bookId;
     @Column(name = "BOOK_TITLE")
@@ -22,8 +26,7 @@ public class Book {
     @Column (name = "BOOK_SUBJECT")
     private String subjects;
 
-    public Book(Long bookId, String title, Author author, String publisher, int isbn, int length, String subjects) {
-        this.bookId = bookId;
+    public Book(String title, Author author, String publisher, int isbn, int length, String subjects) {
         this.title = title;
         this.author = author;
         this.publisher = publisher;

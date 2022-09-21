@@ -1,4 +1,4 @@
-package com.example.bookfarm.Model;
+package com.example.bookfarm.Author;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -9,15 +9,15 @@ import javax.persistence.*;
 
 public class Author {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Author_ID")
-    private long authorId;
+    private Long authorId;
     @Column(name = "AUTHOR_NAME")
     private String authorName;
     @Column(name = "PHONE_NUMBER")
     private int phoneNumber;
 
-    public Author(Long authorId, String authorName, int phoneNumber) {
-        this.authorId = authorId;
+    public Author(String authorName, int phoneNumber) {
         this.authorName = authorName;
         this.phoneNumber = phoneNumber;
     }
